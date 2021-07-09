@@ -5,6 +5,10 @@
 
 加速安装 `ohmyzsh` (前提是安装了`zsh`)
 
+> 可能需要的字体
+>
+> https://github.com/powerline/fonts
+
 #### Win10+
 
 可以使用 `Git Bash` 安装路径下解压 `zsh-5.8-5-x86_64.pkg.tar`

@@ -49,3 +49,15 @@ https://github.com/EricSUID/bench.sh-Others
 
 - bash install-release.sh --version ${版本号} -f
 
+
+### `Auto sign-in ld246.py`
+
+> 链滴(ld246.com) 的自动登录脚本
+
+脚本依赖于 `Python` + `Selenium` + `ChromeDriver`, 测试环境为 Win 10
+
+- 利用 `pip install selenium` 命令安装 `selenium`
+
+- 下载对应的 [Chrome 浏览器驱动](http://npm.taobao.org/mirrors/chromedriver/), 注意驱动版本号要与浏览器版本号一致
+
+- 解压驱动压缩包，将解压后的 `.exe` 文件移动到 `Python 安装目录` 下的 `scripts` 文件夹中

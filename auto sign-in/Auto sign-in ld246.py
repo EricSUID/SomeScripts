@@ -2,6 +2,7 @@
 功能：链滴(原黑客派)自动签到脚本
 配置：社区登录账号 + 密码
 """
+
 import time
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException

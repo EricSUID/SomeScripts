@@ -56,7 +56,9 @@ https://github.com/EricSUID/bench.sh-Others
 
 脚本依赖于 `Python` + `Selenium` + `ChromeDriver`, 测试环境为 Win 10
 
-- 利用 `pip install selenium` 命令安装 `selenium`
+- `pip install selenium` 命令安装 `selenium`
+
+- `pip install win10toast` 命令安装 `win10 桌面消息通知`
 
 - 下载对应的 [Chrome 浏览器驱动](http://npm.taobao.org/mirrors/chromedriver/), 注意驱动版本号要与浏览器版本号一致
 

@@ -17,9 +17,6 @@ driver.maximize_window()  # 最大化窗口
 driver.get(login_url)  # 进入登录页面
 
 try:
-    # driver.find_element_by_xpath(
-    #     "//*[@id='verifyHacpaiIcon' and @class='fn__flex verify__via icon-hacpai']").click()  # 使用社区账号登录
-    # time.sleep(1)  # 延时加载
     driver.find_element_by_id('nameOrEmail').send_keys(username)  # 填充用户名
     driver.find_element_by_id('loginPassword').send_keys(password)  # 填充密码
     driver.find_element_by_id('loginBtn').click()  # 登录

@@ -7,6 +7,15 @@ import time
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from win10toast import ToastNotifier
+import os
+from datetime import datetime
+
+parent = os.getcwd() + "\\"
+
+# print(parent)
+file = open(parent + 'Auto_sign-in_ChinaG_Log' + '.txt', 'a')
+file.write(datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "\n")
+file.close()
 
 toaster = ToastNotifier()
 

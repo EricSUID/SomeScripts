@@ -21,41 +21,45 @@ toaster = ToastNotifier()
 
 username = '请输入自己的账号'
 password = '请输入自己的密码'
-login_url = 'http://j01.best/signin'
+login_url = 'http://a.luxury/signin'
 
 driver = webdriver.Chrome()
 driver.maximize_window()
-driver.get(login_url)
 
 try:
-    driver.find_elements_by_xpath("//input[@class='el-input__inner']")[0].send_keys(username)
-    driver.find_elements_by_xpath("//input[@class='el-input__inner']")[1].send_keys(password)
-    driver.find_elements_by_xpath("//button[@class='el-button el-button--primary']")[0].click()
-    time.sleep(1.5)
-    driver.find_elements_by_xpath("//button[@class='el-button el-button--default el-button--small el-button--primary ']")[0].click()
-    time.sleep(5)
-
-    driver.find_elements_by_xpath("//button[@class='el-dialog__headerbtn']")[4].click()
-
+    driver.get(login_url)
     try:
-        driver.find_element_by_partial_link_text("签").click()
-        
-        # todo 第一次签到的提示
+        driver.find_elements_by_xpath("//input[@class='el-input__inner']")[0].send_keys(username)
+        driver.find_elements_by_xpath("//input[@class='el-input__inner']")[1].send_keys(password)
 
-        # 已经签到的提示
-        toaster.show_toast("学习助理",
-                           driver.find_element_by_xpath("//div[@class='el-message-box__title']").text + "\n" 
-                           + driver.find_element_by_xpath("//div[@class='el-message-box__message']/div").text,
-                           icon_path=None,
-                           duration=10,
-                           threaded=True)
+        try:
+            driver.find_elements_by_xpath("//button[@class='el-button el-button--primary']")[0].click()
+            time.sleep(1.5)
+            driver.find_elements_by_xpath("//button[@class='el-button el-button--default el-button--small el-button--primary ']")[0].click()
+            time.sleep(5)
+            driver.find_elements_by_xpath("//button[@class='el-dialog__headerbtn']")[4].click()
+            driver.find_element_by_partial_link_text("签").click()
+        except NoSuchElementException:
+            print("找不到按钮")
 
-    except NoSuchElementException:
-        print("找不到按钮")
+        if driver.find_element_by_xpath("//div[@class='el-message-box__title']"):
+            # 已经签过到了
+            toaster.show_toast("学习助理",
+                                driver.find_element_by_xpath("//div[@class='el-message-box__title']").text + "\n"
+                                + driver.find_element_by_xpath("//div[@class='el-message-box__message']/div").text,
+                                icon_path=None,
+                                duration=10,
+                                threaded=True)
+        else:
+            toaster.show_toast("学习助理", "签到成功", icon_path=None, duration=10, threaded=True)
+    except Exception as e:
+        print(e)
+        print("签到失败")
+        toaster.show_toast("学习助理", "签到失败", icon_path=None, duration=10, threaded=True)
 
 except Exception as e:
     print(e)
-    print("签到失败")
-    toaster.show_toast("学习助理", "签到失败", icon_path=None, duration=10, threaded=True)
+    print("访问失败")
+    toaster.show_toast("学习助理", "访问失败", icon_path=None, duration=10, threaded=True)
 
 driver.quit()

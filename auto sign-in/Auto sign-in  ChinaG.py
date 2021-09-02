@@ -43,16 +43,25 @@ try:
             if driver.find_element_by_partial_link_text("签到流量"):
                 driver.find_element_by_partial_link_text("签").click()
 
-        except NoSuchElementException:
-            print("找不到按钮")
+            time.sleep(1)
+            if driver.find_element_by_partial_link_text("签"):
+                driver.find_element_by_partial_link_text("签").click()
+                toaster.show_toast("学习助理: 已签到",
+                                   driver.find_element_by_xpath("//div[@class='el-message-box__title']").text + "\n"
+                                   + driver.find_element_by_xpath("//div[@class='el-message-box__message']/div").text,
+                                   icon_path=None,
+                                   duration=10,
+                                   threaded=True)
+
+        except NoSuchElementException as e:
             driver.find_element_by_partial_link_text("签").click()
-            toaster.show_toast("学习助理:已签到",
-                               driver.find_element_by_xpath(
-                                   "//div[@class='el-message-box__title']").text + "\n"
-                               + driver.find_element_by_xpath("//div[@class='el-message-box__message']/div").text,
-                               icon_path=None,
-                               duration=10,
-                               threaded=True)
+            toaster.show_toast("学习助理: 已签到",
+                                driver.find_element_by_xpath("//div[@class='el-message-box__title']").text + "\n"
+                                + driver.find_element_by_xpath("//div[@class='el-message-box__message']/div").text,
+                                icon_path=None,
+                                duration=10,
+                                threaded=True)
+
     except Exception as e:
         print(e)
         print("签到失败")

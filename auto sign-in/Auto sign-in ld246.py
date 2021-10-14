@@ -5,7 +5,6 @@
 
 import time
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.common.exceptions import NoSuchElementException
 from win10toast import ToastNotifier
 import os
@@ -18,7 +17,7 @@ password = '请输入自己的密码'  # 密码
 login_url = 'https://hacpai.com/login?goto=https%3A%2F%2Fhacpai.com%2F'  # 登录URL
 checkin_url = 'https://hacpai.com/activity/checkin'  # 签到URL
 
-driver = webdriver.Chrome(ChromeDriverManager().install())  # 初始化chrome
+driver = webdriver.Chrome()  # 初始化chrome
 driver.maximize_window()  # 最大化窗口
 
 try:

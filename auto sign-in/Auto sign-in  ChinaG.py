@@ -5,6 +5,7 @@
 
 import time
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.common.exceptions import NoSuchElementException
 from win10toast import ToastNotifier
 import os
@@ -23,7 +24,7 @@ username = '请输入自己的账号'
 password = '请输入自己的密码'
 login_url = 'http://a.luxury/signin'
 
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.maximize_window()
 
 try:

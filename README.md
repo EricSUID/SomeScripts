@@ -57,12 +57,15 @@ https://github.com/EricSUID/bench.sh-Others
 脚本依赖于 `Python` + `Selenium` + `ChromeDriver`, 测试环境为 Win 10
 
 执行以下命令安装:
+
 - `pip install selenium` 
-- `pip install win10toast` 
-- `pip install webdriver-manager` 
 
-~~- 下载对应的 [Chrome 浏览器驱动](http://npm.taobao.org/mirrors/chromedriver/), 注意驱动版本号要与浏览器版本号一致~~
+- `pip install win10toast`
 
-~~- 解压驱动压缩包，将解压后的 `.exe` 文件移动到 `Python 安装目录` 下的 `scripts` 文件夹中~~
+~~- `pip install webdriver-manager`~~
 
-> 运行如果出现错误 ==> `ValueError: check_hostname requires server_hos`, 请关闭科学上网后重试
+- 下载对应的 [Chrome 浏览器驱动](http://npm.taobao.org/mirrors/chromedriver/), 注意驱动版本号要与 Chrome 版本号基本一致(xx.x.xxx)
+
+- 解压驱动压缩包，将解压后的 `.exe` 文件移动到 `Python 安装目录` 下的 `scripts` 文件夹中
+
+~~> 运行如果出现错误 ==> `ValueError: check_hostname requires server_hos`, 请关闭科学上网后重试~~

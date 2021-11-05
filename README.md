@@ -69,3 +69,9 @@ https://github.com/EricSUID/bench.sh-Others
 - 解压驱动压缩包，将解压后的 `.exe` 文件移动到 `Python 安装目录` 下的 `scripts` 文件夹中
 
 ~~> 运行如果出现错误 ==> `ValueError: check_hostname requires server_hos`, 请关闭科学上网后重试~~
+
+### 设置自动执行脚本
+
+测试环境为 Win 10/11
+
+https://zhuanlan.zhihu.com/p/93358810
